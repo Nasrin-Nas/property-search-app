@@ -1,0 +1,118 @@
+
+/* Background */
+.search-page {
+  background-image: url("/Users/nasrinnas/property-search-app/src/assets/banner.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 90vh;
+  width: 100%;
+}
+
+/* Container spacing */
+.search-page .container {
+  padding-top: 15%;
+  
+}
+
+/* Search Form Layout */
+.search-form {
+  background-color: #fff;
+  border-radius: 5px;
+  margin-top: 20px;
+  padding: 0 20px;
+
+}
+
+/* Individual boxes */
+.search-form .box {
+  padding: 15px;
+  border-left: 1px solid rgba(128, 128, 128, 0.2);
+  flex: 1;
+}
+
+.search-form .box:first-child {
+  border-left: none;
+}
+
+.search-form h4 {
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.search-form input {
+  padding: 10px;
+  width: 100%;
+  border: 1px solid rgba(128, 128, 128, 0.2);
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.search-form input::placeholder {
+  font-size: 17px;
+  color:rgb(164, 164, 164);
+}
+
+/* Search button */
+.search-btn button {
+  background-color: #004aad;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom:15px;
+}
+
+.search-btn button:hover {
+  background-color: #003080;
+}
+
+/* Results grid */
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+  padding: 40px 20px;
+  background: #f9f9f9;
+}
+.main-heading {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 30px ;
+  margin-bottom: 10px;
+  color: #004aad;
+}
+
+.results-heading {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+
+/* Responsive */
+@media screen and (max-width: 800px) {
+  .search-page .container {
+    padding-top: 30%;
+  }
+
+  .search-form {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .search-form .box {
+    border-left: none;
+  }
+  .search-form input{
+    width:100%
+  }
+
+  .search-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
