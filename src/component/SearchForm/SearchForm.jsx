@@ -79,7 +79,7 @@ function SearchForm() {
               <DateTimePicker
                 value={dateAdded}
                 onChange={setDateAdded}
-                time={false}
+                time="false"
               />
             </div>
 

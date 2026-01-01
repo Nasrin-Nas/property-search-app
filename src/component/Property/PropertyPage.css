@@ -1,0 +1,135 @@
+/* ================== Property Page Container ================== */
+.property-page {
+  max-width: 900px;
+  margin: 100px auto 50px auto; /* Top margin pushes content below navbar */
+  padding: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ================== Title and Summary ================== */
+.property-page h1 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.property-summary {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* ================== Main Image ================== */
+.main-image {
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  transition: transform 0.3s ease;
+}
+
+.main-image:hover {
+  transform: scale(1.02);
+}
+
+/* ================== Thumbnails ================== */
+.thumbnail-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.thumbnail {
+  width: 100px;
+  height: 70px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.thumbnail:hover {
+  transform: scale(1.05);
+}
+
+.thumbnail.active {
+  border-color: #007bff;
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.5);
+}
+
+/* ================== Tabs ================== */
+.react-tabs__tab-list {
+  border-bottom: 2px solid #eee;
+  margin: 0 0 16px;
+  padding: 0;
+  display: flex;
+  gap: 12px;
+}
+
+.react-tabs__tab {
+  list-style: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  background: #e0e0e0;
+  border-radius: 8px 8px 0 0;
+  transition: background 0.3s;
+}
+
+.react-tabs__tab--selected {
+  background: #007bff;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* ================== Tab Panels ================== */
+.react-tabs__tab-panel {
+  background: #fff;
+  padding: 16px;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+.favourite-btn {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 10px 18px;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.favourite-btn:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.favourite-btn.active {
+  background-color: #dc3545; /* red for remove */
+}
+
+
+/* ================== Responsive ================== */
+@media (max-width: 768px) {
+  .thumbnail {
+    width: 70px;
+    height: 50px;
+  }
+
+  .main-image {
+    max-height: 300px;
+  }
+}
+
+/* ================== Headings Scroll Margin (optional) ================== */
+h1, h2, h3, h4, h5, h6 {
+  scroll-margin-top: 70px; /* prevents fixed navbar from covering headings */
+}

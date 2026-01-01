@@ -1,25 +1,30 @@
+import { NavLink } from "react-router-dom";
+import "./Navbar.css";
 
-import {Link} from "react-router-dom"
-import "./Navbar.css"
-
-function Navbar (){
-   return (
-
+function Navbar() {
+  return (
     <div className="navbar">
-      <img src=" " alt="Logo"/>
-      <ul >
-        <li><Link to={'/'}>Home</Link></li>
-        <li><Link to={'/properties'}>Properties</Link></li>
-        <li><Link to={'/favourites'}>Favourites</Link></li>
-        
+      <img src="src/assets/logo.png " alt="Logo" className="logo" />
+      <ul>
+        <li>
+          <NavLink 
+            to="/" 
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink 
+            to="/favourites" 
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            Favourites
+          </NavLink>
+        </li>
       </ul>
-
     </div>
-  )
-
-
+  );
 }
-  
 
-
-export default Navbar
+export default Navbar;

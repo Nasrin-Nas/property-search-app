@@ -1,14 +1,44 @@
-
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 import "./PropertyCard.css";
 
 function PropertyItem({ property }) {
-  if (!property) return null; // prevents crash if property is undefined
+  if (!property) return null;
+
+  // Local favourites state (can also sync with localStorage)
+  const [isFav, setIsFav] = useState(false);
+
+  useEffect(() => {
+    // Check if this property is already in favourites
+    const favs = JSON.parse(localStorage.getItem("favourites")) || [];
+    setIsFav(favs.some((fav) => fav.id === property.id));
+  }, [property.id]);
+
+  const toggleFavourite = () => {
+    const favs = JSON.parse(localStorage.getItem("favourites")) || [];
+    let updatedFavs;
+
+    if (isFav) {
+      // Remove from favourites
+      updatedFavs = favs.filter((fav) => fav.id !== property.id);
+      setIsFav(false);
+    } else {
+      // Add to favourites
+      updatedFavs = [...favs, property];
+      setIsFav(true);
+    }
+
+    localStorage.setItem("favourites", JSON.stringify(updatedFavs));
+  };
 
   return (
     <div className="property-card">
       <img
-        src={property.picture || "https://via.placeholder.com/300x220"} // fallback image
+        src={
+          property.pictures
+            ? property.pictures[0]
+            : property.picture || "https://via.placeholder.com/300x220"
+        }
         alt={`Property in ${property.location || "Unknown Location"}`}
         className="property-img"
       />
@@ -26,16 +56,20 @@ function PropertyItem({ property }) {
           {property.bedrooms ?? "N/A"} Beds · {property.location || "Unknown"}
         </p>
 
-        {property.id ? (
-          <Link
-            to={`/property/${property.id}`} // route to PropertyPage
-            className="property-link"
-          >
+        <div className="property-actions">
+          <Link to={`/property/${property.id}`} className="property-link">
             View Property
           </Link>
-        ) : (
-          <span className="property-link">No link available</span>
-        )}
+
+          {/* Favourites icon */}
+          <span
+            className={`fav-icon ${isFav ? "fav-active" : ""}`}
+            onClick={toggleFavourite}
+            title={isFav ? "Remove from favourites" : "Add to favourites"}
+          >
+            ♥
+          </span>
+        </div>
       </div>
     </div>
   );
