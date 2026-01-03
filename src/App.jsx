@@ -1,17 +1,14 @@
-import "./App.css"
-import Pages from "./component/Pages/Pages"
-import { HashRouter } from 'react-router-dom';
-
+import React from "react";
+import "./App.css";
+import Pages from "./component/Pages/Pages";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Pages />
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 
 export default App;
-
-
-
