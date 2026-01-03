@@ -1,13 +1,13 @@
 import "./App.css"
 import Pages from "./component/Pages/Pages"
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from 'react-router-dom';
 
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Pages />
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
